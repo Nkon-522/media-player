@@ -7,22 +7,25 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 
 import java.io.File;
 
 public class ButtonController {
+    Duration skip = new Duration(5000.0);
+    Duration largerSkip = new Duration(10000.0);
     FileChooser fileChooser;
 
     @FXML
     private MediaView mediaView;
+
+    MediaPlayer mediaPlayer;
 
     public ButtonController() {
         fileChooser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Select a file (*.mp4)", "*.mp4");
         fileChooser.getExtensionFilters().add(filter);
     }
-
-
 
     @FXML
     protected void onOpenFileButtonClick() {
@@ -33,7 +36,7 @@ public class ButtonController {
 
         if (filePath != null) {
             Media media = new Media(filePath);
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer = new MediaPlayer(media);
             mediaView.setMediaPlayer(mediaPlayer);
 
             DoubleProperty width = mediaView.fitWidthProperty();
@@ -48,37 +51,51 @@ public class ButtonController {
 
     @FXML
     protected void onPlayButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+        }
     }
 
     @FXML
     protected void onPauseButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+        }
     }
 
     @FXML
     protected void onStopButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
     }
 
     @FXML
     protected void onFasterBackwardButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(largerSkip) );
+        }
     }
 
     @FXML
     protected void onFastBackwardButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(skip) );
+        }
     }
 
     @FXML
     protected void onFastForwardButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().add(skip) );
+        }
     }
 
     @FXML
     protected void onFasterForwardButtonClick() {
-
+        if (mediaPlayer != null) {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().add(largerSkip) );
+        }
     }
 
     @FXML
