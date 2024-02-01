@@ -14,14 +14,14 @@
             <HBox prefHeight="40.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onOpenFileButtonClick" text="openfile" />
-                  <Button mnemonicParsing="false" text="play" />
-                  <Button mnemonicParsing="false" text="pause" />
-                  <Button mnemonicParsing="false" text="stop" />
-                  <Button mnemonicParsing="false" text="&lt;&lt;&lt;" />
-                  <Button mnemonicParsing="false" text="&lt;&lt;" />
-                  <Button mnemonicParsing="false" text="&gt;&gt;" />
-                  <Button mnemonicParsing="false" text="&gt;&gt;&gt;" />
-                  <Button mnemonicParsing="false" text="exit" />
+                  <Button mnemonicParsing="false" onAction="#onPlayButtonClick" text="play" />
+                  <Button mnemonicParsing="false" onAction="#onPauseButtonClick" text="pause" />
+                  <Button mnemonicParsing="false" onAction="#onStopButtonClick" text="stop" />
+                  <Button mnemonicParsing="false" onAction="#onFasterBackwardButtonClick" text="&lt;&lt;&lt;" />
+                  <Button mnemonicParsing="false" onAction="#onFastBackwardButtonClick" text="&lt;&lt;" />
+                  <Button mnemonicParsing="false" onAction="#onFastForwardButtonClick" text="&gt;&gt;" />
+                  <Button mnemonicParsing="false" onAction="#onFasterForwardButtonClick" text="&gt;&gt;&gt;" />
+                  <Button mnemonicParsing="false" onAction="#onExitButtonClick" text="exit" />
                </children>
             </HBox>
          </children>
@@ -30,7 +30,7 @@
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <MediaView fitHeight="200.0" fitWidth="200.0" />
+            <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" />
          </children>
       </StackPane>
    </center>
