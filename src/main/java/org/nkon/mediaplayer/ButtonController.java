@@ -3,6 +3,7 @@ package org.nkon.mediaplayer;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Slider;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -18,6 +19,9 @@ public class ButtonController {
 
     @FXML
     private MediaView mediaView;
+
+    @FXML
+    private Slider slider;
 
     MediaPlayer mediaPlayer;
 
@@ -44,6 +48,9 @@ public class ButtonController {
 
             width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
             height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+
+            slider.setValue(mediaPlayer.getVolume() * 100);
+            slider.valueProperty().addListener(observable -> mediaPlayer.setVolume(slider.getValue() / 100));
 
             mediaPlayer.play();
         }
