@@ -12,7 +12,13 @@ public class MediaPlayerApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        scene.setOnMouseClicked(doubleClicked -> {
+            if (doubleClicked.getClickCount() == 2) {
+                stage.setFullScreen(!stage.isFullScreen());
+            }
+        });
+
+        stage.setTitle("Media Player");
         stage.setScene(scene);
         stage.show();
     }

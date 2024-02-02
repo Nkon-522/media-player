@@ -21,7 +21,10 @@ public class ButtonController {
     private MediaView mediaView;
 
     @FXML
-    private Slider slider;
+    private Slider volumeSlider;
+
+    @FXML
+    private Slider playbackSlider;
 
     MediaPlayer mediaPlayer;
 
@@ -49,8 +52,19 @@ public class ButtonController {
             width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
             height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
 
-            slider.setValue(mediaPlayer.getVolume() * 100);
-            slider.valueProperty().addListener(observable -> mediaPlayer.setVolume(slider.getValue() / 100));
+            volumeSlider.setValue(mediaPlayer.getVolume() * 100);
+            volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
+
+            mediaPlayer.currentTimeProperty().addListener(
+                    (observableValue, duration, t1) -> {
+                        if ( !playbackSlider.isPressed() ) {
+                            playbackSlider.setValue(t1.toSeconds());
+                        }
+                    }
+            );
+            mediaPlayer.setOnReady(() -> playbackSlider.setMax( (media.getDuration()).toSeconds()));
+
+            playbackSlider.setOnMouseClicked(mouseEvent -> mediaPlayer.seek(Duration.seconds(playbackSlider.getValue())));
 
             mediaPlayer.play();
         }

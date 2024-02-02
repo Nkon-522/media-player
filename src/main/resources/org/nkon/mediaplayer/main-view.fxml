@@ -39,7 +39,7 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Button>
-                  <Slider fx:id="slider">
+                  <Slider fx:id="volumeSlider">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -53,6 +53,7 @@
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" />
+            <Slider fx:id="playbackSlider" StackPane.alignment="BOTTOM_CENTER" />
          </children>
       </StackPane>
    </center>
