@@ -1,5 +1,6 @@
 package org.nkon.mediaplayer;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
@@ -121,7 +122,7 @@ public class ButtonController {
 
     @FXML
     protected void onExitButtonClick() {
-
+        Platform.exit();
     }
 
 

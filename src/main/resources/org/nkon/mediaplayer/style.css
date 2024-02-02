@@ -1,12 +1,9 @@
-.button {
-    -fx-background-color: transparent;
-}
-
 #openFileButton {
     -fx-background-image: url("./images/folder.png");
     -fx-background-size: 20 20;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+    -fx-background-color: transparent;
 }
 
 #playButton {
@@ -14,6 +11,7 @@
     -fx-background-size: 18 23;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+    -fx-background-color: transparent;
 }
 
 #pauseButton {
@@ -21,6 +19,7 @@
     -fx-background-size: 18 23;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+    -fx-background-color: transparent;
 }
 
 #stopButton {
@@ -28,4 +27,5 @@
     -fx-background-size: 18 23;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+    -fx-background-color: transparent;
 }
