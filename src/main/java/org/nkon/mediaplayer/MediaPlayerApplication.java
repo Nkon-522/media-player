@@ -11,7 +11,7 @@ public class MediaPlayerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MediaPlayerApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load());
         scene.setOnMouseClicked(doubleClicked -> {
             if (doubleClicked.getClickCount() == 2) {
                 stage.setFullScreen(!stage.isFullScreen());
@@ -20,6 +20,8 @@ public class MediaPlayerApplication extends Application {
 
         stage.setTitle("Media Player");
         stage.setScene(scene);
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
         stage.show();
     }
 
