@@ -1,3 +1,3 @@
 # media-player
 
-Simple Media Player made in JavaFX.
+Simple Media Player made with JavaFX.
